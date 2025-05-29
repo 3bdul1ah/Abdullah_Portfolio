@@ -1,44 +1,17 @@
 [
   {
     "id": 1,
-    "institution": "University of Technology",
-    "location": "San Francisco, CA",
-    "degree": "Bachelor of Science in Computer Science",
-    "startDate": "Sep 2015",
-    "endDate": "May 2019",
-    "description": "Focused on web development, algorithms, and software engineering principles.",
-    "achievements": [
-      "Graduated with Honors (GPA: 3.8/4.0)",
-      "Dean's List for 6 consecutive semesters",
-      "Completed senior project: 'Interactive Learning Platform for Coding'"
-    ]
-  },
-  {
-    "id": 2,
-    "institution": "Tech Academy",
-    "location": "Online",
-    "degree": "Full Stack Web Development Bootcamp",
-    "startDate": "Jan 2020",
-    "endDate": "Apr 2020",
-    "description": "Intensive 12-week program covering modern web development technologies and practices.",
-    "achievements": [
-      "Developed 5 full-stack applications as part of the curriculum",
-      "Selected for the 'Outstanding Student Project' award",
-      "Participated in team hackathon and won 2nd place"
-    ]
-  },
-  {
-    "id": 3,
-    "institution": "Design Institute",
-    "location": "Online",
-    "degree": "UI/UX Design Certificate",
+    "institution": "Universiti Teknologi Malaysia (UTM)",
+    "location": "Johor Bahru, Malaysia",
+    "degree": "Bachelor of Engineering in Electrical and Electronics Engineering",
     "startDate": "Sep 2021",
-    "endDate": "Dec 2021",
-    "description": "Specialized training in user interface and user experience design principles and practices.",
+    "endDate": "Jul 2025",
+    "description": "Specialized in Computer Engineering with a strong focus on robotics software, embedded systems, and AI-IoT integration.",
     "achievements": [
-      "Created a comprehensive design system for a mock e-commerce platform",
-      "Conducted user research and usability testing",
-      "Applied design thinking methodology to solve real-world problems"
+      "CGPA: 3.82/4.00",
+      "7x Dean’s List",
+      "IEEE Conference Paper Author: 'Luna: A Benchmark Project in the Convergence of AI and IoT'",
+      "Thesis: 'ROS-Based Teleoperated Mobile Robot for Hazard Mapping'"
     ]
   }
 ]

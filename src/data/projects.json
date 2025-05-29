@@ -1,101 +1,160 @@
 [
   {
     "id": 1,
-    "title": "E-commerce Website",
-    "description": "A fully responsive e-commerce platform built with React and Node.js. Features include user authentication, product filtering, cart functionality, and payment integration.",
-    "image": "https://cdn.dribbble.com/userupload/13298890/file/original-e48a63005a3f4e5b753d356628b479b1.jpg?resize=752x&vertical=center",
-    "technologies": ["React", "Node.js", "Express", "MongoDB", "Stripe"],
-    "category": "web",
-    "github": "https://github.com/yourusername/ecommerce-project",
-    "demo": "https://ecommerce-demo.example.com",
-    "year": "2023"
+    "title": "Firefighter Robot",
+    "description": "Teleoperated robot for mapping and gas detection with ROS2, featuring a React dashboard for monitoring and control.",
+    "technologies": [
+      "ROS2",
+      "React",
+      "Gas Detection"
+    ],
+    "category": [
+      "robotics",
+      "web-dev"
+    ],
+    "github": "https://github.com/3bdul1ah/x3cator_ws",
+    "demo": "https://github.com/3bdul1ah/x3cator_ws"
   },
   {
     "id": 2,
-    "title": "Task Management App",
-    "description": "A productivity application that helps users organize tasks, set deadlines, and track progress. Includes features like drag-and-drop, notifications, and team collaboration.",
-    "technologies": ["React", "Firebase", "Tailwind CSS", "React DnD"],
-    "image": "https://designshack.net/wp-content/uploads/Dashboard-Task-Management-Web-App-UI-Kit-1.webp",
-    "category": "web",
-    "github": "https://github.com/yourusername/task-manager",
-    "demo": "https://task-manager-demo.example.com",
-    "year": "2023"
+    "title": "Luna AI Assistant",
+    "description": "Voice-controlled AI system designed for IoT applications, integrating AI and voice recognition technologies.",
+    "technologies": [
+      "AI",
+      "IoT",
+      "Voice Recognition"
+    ],
+    "category": [
+      "ai-cv",
+      "iot-embedded"
+    ],
+    "github": "https://github.com/3bdul1ah/LunaAI-IoT-Assistant",
+    "demo": "https://github.com/3bdul1ah/LunaAI-IoT-Assistant"
   },
   {
     "id": 3,
-    "title": "Weather Dashboard",
-    "description": "A weather application that provides current weather data and forecasts for locations worldwide. Uses OpenWeatherMap API and features interactive maps.",
-    "technologies": ["JavaScript", "HTML", "CSS", "OpenWeatherMap API"],
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu8IeMKdtd4O6W54my_P3-c8T5XsK5mNjAIQ&s",
-    "category": "web",
-    "github": "https://github.com/yourusername/weather-dashboard",
-    "demo": "https://weather-app-demo.example.com",
-    "year": "2022"
+    "title": "Autonomous UGV",
+    "description": "Full-stack ROS navigation with sensor fusion for autonomous operation, including obstacle avoidance and path planning.",
+    "technologies": [
+      "ROS",
+      "Sensor Fusion",
+      "Navigation"
+    ],
+    "category": [
+      "robotics",
+      "iot-embedded"
+    ],
+    "github": "https://github.com/3bdul1ah/ROS-Autonomous-UGV-",
+    "demo": "https://autonomous-ugv-demo.example.com"
   },
   {
     "id": 4,
-    "title": "Fitness Tracker Mobile App",
-    "description": "A cross-platform mobile application for tracking workouts, setting fitness goals, and monitoring progress. Includes features like calorie counting and exercise tutorials.",
-    "image": "https://cdn.dribbble.com/userupload/7274924/file/original-62f4f2a60e97f22afbfb3bba60e9ebc9.jpg",
-    "technologies": ["React Native", "Expo", "Firebase", "Redux"],
-    "category": "mobile",
-    "github": "https://github.com/yourusername/fitness-tracker",
-    "demo": null,
-    "year": "2022"
+    "title": "Welding Inspector",
+    "description": "Weld quality analysis system using YOLOv8 for object detection, integrated with Flask for backend services.",
+    "technologies": [
+      "YOLOv8",
+      "Flask",
+      "Computer Vision"
+    ],
+    "category": [
+      "ai-cv",
+      "web-dev"
+    ],
+    "github": "https://github.com/3bdul1ah/WeldGuard",
+    "demo": "https://github.com/3bdul1ah/WeldGuard"
   },
   {
     "id": 5,
-    "title": "Portfolio Website",
-    "description": "A personal portfolio website showcasing my projects, skills, and experience. Built with React and Tailwind CSS, featuring a clean and modern design.",
-    "image": "https://repository-images.githubusercontent.com/279903174/e6d970ed-8a4d-42fa-9f16-0b7efc34fb95",
-    "technologies": ["React", "Tailwind CSS", "Framer Motion"],
-    "category": "web",
-    "github": "https://github.com/yourusername/portfolio",
-    "demo": "https://yourusername.example.com",
-    "year": "2023"
+    "title": "Robotic Arm",
+    "description": "STM32-controlled robotic arm with a ROS interface for seamless communication and control.",
+    "technologies": [
+      "STM32",
+      "ROS",
+      "Robotics"
+    ],
+    "category": [
+      "robotics",
+      "iot-embedded"
+    ],
+    "github": "https://github.com/3bdul1ah/ROS-robotic-arm-control",
+    "demo": "https://2dof-robotic-arm-demo.example.com"
   },
   {
     "id": 6,
-    "title": "Recipe Finder App",
-    "description": "A web application that allows users to search for recipes based on ingredients, dietary restrictions, and cuisine types. Includes features like saving favorites and meal planning.",
-    "image": "https://store-images.s-microsoft.com/image/apps.16934.9007199266535063.ee5f905a-72df-4551-9ea1-7a24794bb127.ce08987c-3b1b-4b54-a048-d886b2ea9645?h=253",
-    "technologies": ["React", "Node.js", "MongoDB", "Spoonacular API"],
-    "category": "web",
-    "github": "https://github.com/yourusername/recipe-finder",
-    "demo": "https://recipe-finder-demo.example.com",
-    "year": "2022"
+    "title": "License Plate Detector",
+    "description": "Vehicle identification system using ESP32-CAM and OpenCV for license plate detection.",
+    "technologies": [
+      "ESP32-CAM",
+      "OpenCV",
+      "Computer Vision"
+    ],
+    "category": [
+      "ai-cv",
+      "iot-embedded"
+    ],
+    "github": "https://github.com/3bdul1ah/License-Plates-Detector-Model",
+    "demo": "https://github.com/3bdul1ah/License-Plates-Detector-Model"
   },
   {
     "id": 7,
-    "title": "Chat Application",
-    "description": "A real-time chat application with features like private messaging, group chats, and file sharing. Built with Socket.io for real-time communication.",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw8Qdh1_2n98Uf4rgNFTnLhmBuHsnE9TUNeQ&s",
-    "technologies": ["React", "Node.js", "Socket.io", "MongoDB"],
-    "category": "web",
-    "github": "https://github.com/yourusername/chat-app",
-    "demo": "https://chat-app-demo.example.com",
-    "year": "2023"
+    "title": "Robot Dashboard",
+    "description": "React-based web interface for controlling and monitoring ROS-controlled robots.",
+    "technologies": [
+      "React",
+      "ROS",
+      "Web Interface"
+    ],
+    "category": [
+      "web-dev",
+      "robotics"
+    ],
+    "github": "https://github.com/3bdul1ah/robot-website-react",
+    "demo": "https://github.com/3bdul1ah/robot-website-react"
   },
   {
     "id": 8,
-    "title": "UI Component Library",
-    "description": "A collection of reusable UI components built with React and styled with Tailwind CSS. Includes documentation and examples for each component.",
-    "image": "https://pagepro.co/blog/wp-content/uploads/2022/02/Screenshot-2022-02-16-at-10.03.37.png",
-    "technologies": ["React", "Tailwind CSS", "Storybook"],
-    "category": "design",
-    "github": "https://github.com/yourusername/ui-components",
-    "demo": "https://ui-components-demo.example.com",
-    "year": "2023"
+    "title": "Parking System",
+    "description": "Embedded system for real-time parking space monitoring and management.",
+    "technologies": [
+      "Embedded Systems",
+      "IoT",
+      "Sensor Integration"
+    ],
+    "category": [
+      "iot-embedded"
+    ],
+    "github": "https://github.com/3bdul1ah/Atmega32a-Parking-System",
+    "demo": "https://parking-system-demo.example.com"
   },
   {
     "id": 9,
-    "title": "Budget Tracker",
-    "description": "A financial management application that helps users track income, expenses, and savings goals. Features include data visualization and budget categories.",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIZteyic83phVYdkynZNxkNf7l07Gd5x8fpw&s",
-    "technologies": ["React", "Chart.js", "Firebase"],
-    "category": "web",
-    "github": "https://github.com/yourusername/budget-tracker",
-    "demo": "https://budget-tracker-demo.example.com",
-    "year": "2022"
+    "title": "Multithreaded Chat",
+    "description": "Client-server chat application utilizing sockets for real-time messaging.",
+    "technologies": [
+      "Sockets",
+      "Multithreading",
+      "Node.js"
+    ],
+    "category": [
+      "web-dev"
+    ],
+    "github": "https://github.com/yourusername/multithreaded-chat",
+    "demo": "https://github.com/3bdul1ah/multithreaded_chat_app"
+  },
+  {
+    "id": 10,
+    "title": "Image-Laser Converter",
+    "description": "Open-source package for converting RGB images to laser scan data for robotics applications.",
+    "technologies": [
+      "OpenCV",
+      "Laser Scanning",
+      "ROS"
+    ],
+    "category": [
+      "robotics",
+      "ai-cv"
+    ],
+    "github": "https://github.com/3bdul1ah/rgbimage_to_laserscan",
+    "demo": "https://image-laser-converter-demo.example.com"
   }
 ]

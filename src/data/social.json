@@ -1,22 +1,17 @@
 [
   {
     "name": "GitHub",
-    "url": "https://github.com/yourusername",
-    "icon": "mdi:github"
+    "url": "https://github.com/3bdul1ah",
+    "icon": "tabler:brand-github"
   },
   {
     "name": "LinkedIn",
-    "url": "https://linkedin.com/in/yourusername",
-    "icon": "mdi:linkedin"
-  },
-  {
-    "name": "Instagram",
-    "url": "https://twitter.com/yourusername",
-    "icon": "mdi:instagram"
+    "url": "https://linkedin.com/in/abdullah-al-shateri",
+    "icon": "tabler:brand-linkedin"
   },
   {
     "name": "Email",
-    "url": "mailto:your.email@example.com",
-    "icon": "mdi:email"
+    "url": "mailto:abdullah.alshateri.official@gmail.com",
+    "icon": "tabler:mail"
   }
 ]

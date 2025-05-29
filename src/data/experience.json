@@ -1,63 +1,67 @@
 [
   {
     "id": 1,
-    "position": "Senior Frontend Developer",
-    "company": "Tech Solutions Inc.",
-    "location": "San Francisco, CA",
-    "startDate": "Jan 2022",
+    "position": "Robotics Software Engineer",
+    "company": "A2Tech Sdn Bhd",
+    "location": "Johor Bahru, Malaysia",
+    "startDate": "Oct 2024",
     "endDate": "Present",
     "responsibilities": [
-      "Lead the development of the company's flagship web application using React and TypeScript",
-      "Implemented responsive designs and improved website performance by 40%",
-      "Collaborated with UX designers to create intuitive user interfaces",
-      "Mentored junior developers and conducted code reviews",
-      "Implemented CI/CD pipelines and testing strategies"
+      "Developed ROS2-based firefighter robot with React dashboard monitoring.",
+      "Implemented sensor fusion algorithms and ROS navigation for autonomous movement.",
+      "Collaborated with hardware engineers to integrate UGV components.",
+      "Enhanced real-time communication between robot and web interface using ROSbridge.",
+      "Improved system performance through regular testing and optimization."
     ],
     "technologies": [
+      "ROS2",
       "React",
-      "TypeScript",
-      "Redux",
-      "Tailwind CSS",
-      "Jest",
-      "GitHub Actions"
+      "C++",
+      "Embedded Systems",
+      "Sensor Fusion",
+      "Robot Operating System (ROS)"
     ]
   },
   {
     "id": 2,
-    "position": "Frontend Developer",
-    "company": "Digital Innovations",
-    "location": "New York, NY",
-    "startDate": "Mar 2020",
-    "endDate": "Dec 2021",
+    "position": "Robotics Intern",
+    "company": "Aonic SJ HQ",
+    "location": "Malaysia",
+    "startDate": "Jul 2024",
+    "endDate": "Oct 2024",
     "responsibilities": [
-      "Developed and maintained multiple client websites using React and JavaScript",
-      "Built reusable components and front-end libraries for future use",
-      "Optimized applications for maximum speed and scalability",
-      "Collaborated with back-end developers and designed RESTful APIs",
-      "Participated in daily stand-ups and sprint planning meetings"
+      "Developed software for UGVs using ROS for motor control and navigation.",
+      "Integrated sensor data for obstacle detection and path planning.",
+      "Tested and optimized motor control systems for improved robot response.",
+      "Worked on real-time communication between the robot and a remote monitoring system."
     ],
     "technologies": [
-      "React",
-      "JavaScript",
-      "SASS",
-      "RESTful APIs",
-      "Agile/Scrum"
+      "ROS",
+      "Embedded Systems",
+      "C/C++",
+      "Motor Control",
+      "Sensor Integration"
     ]
   },
   {
     "id": 3,
-    "position": "Web Developer Intern",
-    "company": "StartUp Ventures",
-    "location": "Boston, MA",
-    "startDate": "Jun 2019",
-    "endDate": "Feb 2020",
+    "position": "AI-IoT Research Lab Assistant",
+    "company": "UTM FKE Lab",
+    "location": "Johor Bahru, Malaysia",
+    "startDate": "Mar 2024",
+    "endDate": "Jul 2024",
     "responsibilities": [
-      "Assisted in developing and maintaining company website using HTML, CSS, and JavaScript",
-      "Created responsive layouts and implemented cross-browser compatibility",
-      "Collaborated with the design team to implement visual elements",
-      "Participated in code reviews and contributed to documentation",
-      "Gained experience with version control systems and project management tools"
+      "Developed an AI-IoT voice assistant for smart home applications.",
+      "Implemented natural language processing algorithms for voice command recognition.",
+      "Created IoT interfaces for controlling home appliances via voice commands.",
+      "Published IEEE paper on AI-IoT integration in voice assistant systems."
     ],
-    "technologies": ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", "Git"]
+    "technologies": [
+      "Python",
+      "AI/IoT",
+      "Natural Language Processing (NLP)",
+      "Voice Recognition",
+      "Embedded Systems"
+    ]
   }
 ]

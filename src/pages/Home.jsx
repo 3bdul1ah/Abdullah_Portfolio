@@ -2,181 +2,374 @@ import { Link } from "react-router-dom"
 import { Icon } from "@iconify/react"
 import profile from '../assets/pexels-photo-771742.jpeg'
 import projects from '../data/projects.json'
-import skills from '../data/skills.json'
+import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react"
 
 const Home = () => {
+    const CV_URL = "https://drive.google.com/file/d/1afPaKGiTZgndCwn0kmovNZw4u63lG2nB/view?usp=sharing"
+    const roles = [
+        "Electronics & Computer Engineer",
+        "Robotic Software Developer",
+        "AI & IoT Developer",
+        "Embedded Systems Expert",
+        "Web Developer"
+    ]
+    const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentRoleIndex((prev) => (prev + 1) % roles.length)
+        }, 3000)
+        return () => clearInterval(interval)
+    }, [])
+
     return (
-        <div className="bg-darktheme">
+        <div className="bg-[var(--color-dark)] min-h-screen">
             {/* Hero Section */}
-            <section className="py-20 sm:py-32">
+            <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                         <div className="flex-1 space-y-8">
-                            <div>
-                                <span className="inline-block px-3 py-1 text-sm font-medium text-white bg-theme rounded-full">
-                                    Software Engineer
-                                </span>
+                            <div className="space-y-4">
+                                <motion.h1
+                                    className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-text)]"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                >
+                                    Hi, I'm <span className="text-[var(--color-primary)]">Abdullah</span>
+                                </motion.h1>
+                                <motion.div
+                                    className="h-16 text-3xl font-bold"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.5, delay: 0.4 }}
+                                >
+                                    <AnimatePresence mode="wait">
+                                        <motion.span
+                                            key={currentRoleIndex}
+                                            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: -20, scale: 0.8 }}
+                                            transition={{
+                                                duration: 0.7,
+                                                type: "spring",
+                                                stiffness: 50,
+                                                damping: 15
+                                            }}
+                                            className="inline-block px-6 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 text-[var(--color-primary)]"
+                                        >
+                                            {roles[currentRoleIndex]}
+                                        </motion.span>
+                                    </AnimatePresence>
+                                </motion.div>
                             </div>
-                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
-                                Hi, I'm <span className="text-theme">Torky</span>
-                            </h1>
-                            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
-                                I build exceptional and accessible digital experiences for the web. Focused on creating clean,
-                                user-friendly interfaces that solve real-world problems.
-                            </p>
-                            <div className="flex flex-wrap gap-4">
+                            <motion.p
+                                className="text-xl text-[var(--color-text-light)] max-w-2xl"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.6 }}
+                            >
+                                I build embedded and robotic systems, integrating ROS, AI, and IoT to develop intelligent, real-world technologies.
+                            </motion.p>
+                            <motion.div
+                                className="flex flex-wrap gap-4"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.8 }}
+                            >
                                 <Link
                                     to="/projects"
-                                    className="inline-flex items-center px-6 py-3 bg-theme text-white font-medium rounded-md hover:bg-blue-400 transition-colors"
+                                    className="btn btn-primary inline-flex items-center px-10 py-5 text-xl"
                                 >
+                                    <Icon icon="tabler:apps" width="24" height="24" className="mr-2" />
                                     View My Work
-                                    <Icon icon="tabler:arrow-right" width="18" height="18" className="ml-2" />
+                                    <Icon icon="tabler:arrow-right" width="24" height="24" className="ml-2" />
                                 </Link>
                                 <a
-                                    href="/resume.pdf"
-                                    download
-                                    className="inline-flex items-center px-6 py-3 bg-theme2  text-white font-medium rounded-md hover:bg-red-800 transition-colors"
+                                    href={CV_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn bg-[var(--color-dark-lighter)] text-[var(--color-text)] hover:bg-[var(--color-primary)]/10 inline-flex items-center px-10 py-5 text-xl border border-[var(--color-primary)]/30"
                                 >
+                                    <Icon icon="tabler:file-cv" width="24" height="24" className="mr-2" />
                                     Download CV
-                                    <Icon icon="tabler:download" width="18" height="18" className="ml-2" />
+                                    <Icon icon="tabler:download" width="24" height="24" className="ml-2" />
                                 </a>
-                            </div>
+                            </motion.div>
                         </div>
-                        <div className="flex-1 flex justify-center">
-                            <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-8 border-theme shadow-xl">
-                                <img
-                                    src={profile}
-                                    alt="Your Name"
-                                    className="w-full h-full object-cover "
-                                />
+                        <motion.div
+                            className="flex-1 flex justify-center"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                        >
+                            <div className="relative">
+                                {/* Theme-matching background */}
+                                <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-[var(--color-primary)]/10 via-[var(--color-secondary)]/10 to-[var(--color-primary)]/10"></div>
+
+                                {/* Main photo container */}
+                                <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-2 border-[var(--color-primary)]/30 shadow-lg hover:shadow-xl hover:shadow-[var(--color-primary)]/20 transition-all duration-300">
+                                    <motion.img
+                                        src={profile}
+                                        alt="Abdullah Al-Shateri"
+                                        className="w-full h-full object-cover"
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ duration: 0.3 }}
+                                    />
+
+                                    {/* Subtle gradient overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-transparent"></div>
+                                </div>
+
+                                {/* Theme-matching accent elements */}
+                                <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-[var(--color-primary)]/30"></div>
+                                <div className="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-[var(--color-secondary)]/30"></div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* Featured Projects Section */}
-            <section className="py-16 bg-white">
+            <section className="py-20 bg-[var(--color-dark-lighter)]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-darktheme">Featured Projects</h2>
-                        <p className="text-xl text-gray-500">Some of my recent work that I'm proud of</p>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                            <span className="text-[var(--color-text)]">Featured</span>{" "}
+                            <span className="text-[var(--color-primary)]">Projects</span>
+                        </h2>
+                        <p className="text-[var(--color-text-light)] text-lg max-w-2xl mx-auto">
+                            Explore some of my recent work in robotics, computer vision, and embedded systems
+                        </p>
+                    </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* This would be populated from projects.json in the actual implementation */}
-                        {projects.slice(0, 3).map((project) => (
-                            <div key={project.id} className="bg-darktheme rounded-lg overflow-hidden shadow-xl border-2 border-darktheme">
-                                <img
+                        {projects.slice(0, 3).map((project, index) => (
+                            <motion.div
+                                key={project.id}
+                                className="card p-6"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                whileHover={{ scale: 1.02 }}
+                            >
+                                <motion.img
                                     src={project.image}
                                     alt={`Project ${project.title}`}
-                                    className="w-full h-48 object-cover"
+                                    className="w-full h-48 object-cover rounded-lg mb-4"
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ duration: 0.3 }}
                                 />
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                                    <p className="text-gray-300 mb-4">
+                                <div className="space-y-4">
+                                    <h3 className="text-xl font-bold text-[var(--color-text)]">{project.title}</h3>
+                                    <p className="text-[var(--color-text-light)]">
                                         {project.description}
                                     </p>
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        {(project.technologies).map((techno) => (
-                                            <span className="text-xs font-medium px-2.5 py-0.5 rounded bg-theme text-darktheme">
-                                                {techno}
-                                            </span>
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.technologies.map((tech, techIndex) => (
+                                            <motion.span
+                                                key={techIndex}
+                                                className="px-2.5 py-1 text-xs font-medium rounded-full bg-[var(--color-primary)]/20 text-[var(--color-primary)] border border-[var(--color-primary)]/30"
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: 0.95 }}
+                                            >
+                                                {tech}
+                                            </motion.span>
                                         ))}
                                     </div>
-                                    <Link
-                                        to={project.demo}
-                                        className="text-theme font-medium hover:underline flex items-center"
+                                    <motion.div
+                                        whileHover={{ x: 5 }}
+                                        transition={{ duration: 0.2 }}
                                     >
-                                        View Demo
-                                        <Icon icon="tabler:arrow-right" width="16" height="16" className="ml-1" />
-                                    </Link>
+                                        <Link
+                                            to={project.demo}
+                                            className="inline-flex items-center text-[var(--color-accent)] hover:text-[var(--color-primary)] transition-colors"
+                                        >
+                                            View Demo
+                                            <Icon icon="tabler:arrow-right" width="16" height="16" className="ml-1" />
+                                        </Link>
+                                    </motion.div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
 
-                    <div className="mt-12 text-center">
+                    <motion.div
+                        className="text-center mt-12"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
                         <Link
                             to="/projects"
-                            className="inline-flex items-center px-6 py-3 bg-theme text-white font-medium rounded-md hover:bg-blue-400 transition duration-300 hover:scale-120"
+                            className="btn btn-primary inline-flex items-center px-10 py-5 text-xl"
                         >
+                            <Icon icon="tabler:apps" width="24" height="24" className="mr-2" />
                             View All Projects
-                            <Icon icon="tabler:arrow-right" width="18" height="18" className="ml-2" />
+                            <Icon icon="tabler:arrow-right" width="24" height="24" className="ml-2" />
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
-            {/* Skills Section */}
-            <section className="py-16">
+            {/* Skills Categories Section */}
+            <section className="py-20 bg-[var(--color-dark-lighter)]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-white">My Skills</h2>
-                        <p className="text-xl text-gray-300">Technologies and tools I work with</p>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                            <span className="text-[var(--color-text)]">Featured</span>{" "}
+                            <span className="text-[var(--color-primary)]">Skills</span>
+                        </h2>
+                        <p className="text-[var(--color-text-light)] text-lg max-w-2xl mx-auto">
+                            Specialized expertise in robotics, embedded systems, and computer vision
+                        </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {/* Embedded Systems & IoT */}
+                        <motion.div
+                            className="card group"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            whileHover={{ y: -5 }}
+                        >
+                            <div className="p-4 bg-[var(--color-primary)]/10 rounded-xl mb-4 inline-block">
+                                <Icon icon="tabler:cpu" width="32" height="32" className="text-[var(--color-primary)]" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-[var(--color-text)] mb-4">Embedded Systems & IoT</h3>
+                            <p className="text-[var(--color-text-light)] mb-6">
+                                Expertise in microcontroller programming, sensor integration, and IoT solutions development.
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">Arduino</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">Raspberry Pi</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">ESP32</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">STM32</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">Jetson Nano</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">LiDAR</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">IMU</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">MQTT</span>
+                            </div>
+                        </motion.div>
+
+                        {/* Robotics & Automation */}
+                        <motion.div
+                            className="card group"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                            whileHover={{ y: -5 }}
+                        >
+                            <div className="p-4 bg-[var(--color-primary)]/10 rounded-xl mb-4 inline-block">
+                                <Icon icon="tabler:robot" width="32" height="32" className="text-[var(--color-primary)]" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-[var(--color-text)] mb-4">Robotics & Automation</h3>
+                            <p className="text-[var(--color-text-light)] mb-6">
+                                Specialized in ROS, motion planning, and industrial automation systems.
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">ROS1/ROS2</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">SLAM</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">Navigation</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">Gmapping</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">Cartographer</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">FAST-LIO</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">LIO-SAM</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">DWA Planner</span>
+                            </div>
+                        </motion.div>
+
+                        {/* AI & Computer Vision */}
+                        <motion.div
+                            className="card group"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            whileHover={{ y: -5 }}
+                        >
+                            <div className="p-4 bg-[var(--color-primary)]/10 rounded-xl mb-4 inline-block">
+                                <Icon icon="tabler:brain" width="32" height="32" className="text-[var(--color-primary)]" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-[var(--color-text)] mb-4">AI & Computer Vision</h3>
+                            <p className="text-[var(--color-text-light)] mb-6">
+                                Proficient in machine learning, computer vision, and deep learning applications.
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">OpenCV</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">YOLO</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">TensorFlow</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">PyTorch</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">Pointcloud</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">Depth Camera</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">ESP32-CAM</span>
+                                <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">Image Processing</span>
+                            </div>
+                        </motion.div>
                     </div>
 
-                    <div className="flex md:flex-row flex-col gap-8">
-                        <div className="bg-gray-500 rounded-lg shadow-md p-6">
-                            <h3 className="text-xl font-bold text-white mb-4">Frontend</h3>
-                            <div className="flex flex-wrap gap-2">
-                                {skills.Frontend.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="px-3 py-1 rounded-full text-white bg-darktheme text-sm font-medium"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-
-
-                        <div className="bg-gray-500 rounded-lg shadow-md p-6">
-                            <h3 className="text-xl font-bold text-white mb-4">Backend</h3>
-                            <div className="flex flex-wrap gap-2">
-                                {skills.Backend.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="px-3 py-1 rounded-full text-white bg-darktheme text-sm font-medium"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="bg-gray-500 rounded-lg shadow-md p-6">
-                            <h3 className="text-xl font-bold text-white mb-4">Tools</h3>
-                            <div className="flex flex-wrap gap-2">
-                                {skills.Tools.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="px-3 py-1 rounded-full text-white bg-darktheme text-sm font-medium"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                    <motion.div
+                        className="text-center mt-12"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        <Link
+                            to="/about"
+                            className="btn btn-primary inline-flex items-center px-10 py-5 text-xl"
+                        >
+                            <Icon icon="tabler:list" width="24" height="24" className="mr-2" />
+                            View All Skills
+                            <Icon icon="tabler:arrow-right" width="24" height="24" className="ml-2" />
+                        </Link>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Call to Action */}
-            <section className="py-16 bg-theme2">
+            <section className="py-20 bg-gradient-to-br from-[var(--color-primary)]/20 via-[var(--color-secondary)]/20 to-[var(--color-primary)]/20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold text-white">Interested in working together?</h2>
-                    <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
-                        I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
-                    </p>
-                    <Link
-                        to="/contact"
-                        className="inline-flex items-center px-6 py-3 bg-white text-theme2 font-medium rounded-md hover:bg-gray-100 transition-colors"
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="space-y-8"
                     >
-                        Get In Touch
-                        <Icon icon="tabler:arrow-right" width="18" height="18" className="ml-2" />
-                    </Link>
+                        <h2 className="text-4xl sm:text-5xl font-bold text-[var(--color-text)]">Let's Work Together</h2>
+                        <p className="text-xl text-[var(--color-text-light)] max-w-3xl mx-auto">
+                            I'm currently available for freelance work or full-time positions. Let's build something amazing together!
+                        </p>
+                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                            <Link
+                                className="btn btn-primary inline-flex items-center px-10 py-5 text-xl"
+                                onClick={() => window.open(`http://wa.me/971502053231`, "_blank")}
+                            >
+                                <Icon icon="tabler:message-circle" width="24" height="24" className="mr-2" />
+                                Get In Touch
+                                <Icon icon="tabler:arrow-right" width="24" height="24" className="ml-2" />
+                            </Link>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
         </div>

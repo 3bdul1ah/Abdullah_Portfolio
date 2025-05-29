@@ -1,24 +1,32 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { Icon } from "@iconify/react"
 import logo from '../assets/react.svg'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [showResumeOptions, setShowResumeOptions] = useState(false)
     const location = useLocation()
+    const CV_URL = "https://drive.google.com/file/d/1afPaKGiTZgndCwn0kmovNZw4u63lG2nB/view?usp=sharing"
+    const CV_DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=1afPaKGiTZgndCwn0kmovNZw4u63lG2nB"
+    const [isScrolled, setIsScrolled] = useState(false)
 
     const navLinks = [
-        { name: "Home", path: "/" },
-        { name: "About", path: "/about" },
-        { name: "Projects", path: "/projects" },
-        { name: "Resume", path: "/resume" },
-        // { name: "Contact", path: "/contact" },
+        { name: "Home", path: "/", icon: "tabler:home" },
+        { name: "About", path: "/about", icon: "tabler:user" },
+        { name: "Projects", path: "/projects", icon: "tabler:apps" },
+        {
+            name: "Resume",
+            path: CV_URL,
+            isExternal: true,
+            icon: "tabler:file-cv"
+        }
     ]
 
-    const socialLink = [
-        { icon: "mdi:linkedin", link: "https://www.linkedin.com/in/mdtorky/" },
-        { icon: "mdi:instagram", link: "https://www.instagram.com/mohdtorky/" },
-        { icon: "ic:baseline-email", link: "mailto:mohamed2003torky@gmail.com" }
+    const socialLinks = [
+        { icon: "mdi:github", link: "https://github.com/Abdullah-Alshateri" },
+        { icon: "mdi:linkedin", link: "https://www.linkedin.com/in/abdullah-al-shateri/" },
+        { icon: "ic:baseline-email", link: "mailto:abdullah.alshateri.official@gmail.com" }
     ]
 
     const toggleMenu = () => {
@@ -27,85 +35,137 @@ const Navbar = () => {
 
     const closeMenu = () => {
         setIsMenuOpen(false)
+        setShowResumeOptions(false)
     }
 
+    const handleNavClick = (link) => {
+        closeMenu()
+        if (link.isExternal) {
+            window.open(link.path, "_blank")
+        }
+    }
+
+    const ResumeDropdown = () => (
+        <div className="relative">
+            <Link
+                to="/resume"
+                className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${location.pathname === "/resume"
+                    ? "text-[var(--color-primary)]"
+                    : "text-[var(--color-text-light)] hover:text-[var(--color-primary)]"
+                    }`}
+            >
+                <Icon icon="tabler:file-cv" className="w-5 h-5" />
+                <span>Resume</span>
+            </Link>
+        </div>
+    )
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20)
+        }
+        window.addEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [])
+
     return (
-        <nav className="sticky top-0 z-50 ">
-            <div className="lg:w-7xl bg-white mx-auto px-4 sm:px-6 lg:px-8 shadow-sm rounded-b-xl">
-                <div className="flex justify-between h-16">
-                    <div className="flex items-center">
-                        <Link to="/" className="flex-shrink-0 flex items-center" onClick={closeMenu}>
-                            {/* <span className="text-2xl font-bold text-theme">Portfolio</span> */}
-                            <img src={logo} alt="" />
-                        </Link>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[var(--color-dark)] shadow-lg" : "bg-transparent"}`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    <div className="flex items-center gap-2">
+                        <Icon icon="tabler:code" className="w-8 h-8 text-[var(--color-primary)]" />
+                        <span className="text-xl font-bold text-[var(--color-text)]">Abdullah Portfolio</span>
                     </div>
 
-
-                    <div className="hidden md:flex items-center space-x-4">
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center space-x-8">
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${location.pathname === link.path
-                                    ? "text-theme"
-                                    : "text-darktheme hover:text-theme2"
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
+                            link.name === "Resume" ? (
+                                <ResumeDropdown key={link.name} />
+                            ) : (
+                                <Link
+                                    key={link.name}
+                                    to={link.path}
+                                    className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${location.pathname === link.path
+                                        ? "text-[var(--color-primary)]"
+                                        : "text-[var(--color-text-light)] hover:text-[var(--color-primary)]"
+                                        }`}
+                                >
+                                    <Icon icon={link.icon} className="w-5 h-5" />
+                                    <span>{link.name}</span>
+                                </Link>
+                            )
                         ))}
-                        <div className="bg-darktheme text-white flex items-center text-2xl gap-1 p-1 rounded-sm">
-                            {socialLink.map((link) => (
-                                <button
-                                    onClick={() => window.open(link.link, "_blank")}
-                                    className="cursor-pointer hover:scale-120 duration-300"><Icon icon={link.icon} /></button>
+                        <div className="flex items-center space-x-4 pl-4 border-l border-[var(--color-gray-700)]">
+                            {socialLinks.map((link) => (
+                                <a
+                                    key={link.icon}
+                                    href={link.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-[var(--color-text-light)] hover:text-[var(--color-primary)] transition-colors p-2 rounded-full hover:bg-[var(--color-dark)]"
+                                >
+                                    <Icon icon={link.icon} className="w-5 h-5" />
+                                </a>
                             ))}
                         </div>
                     </div>
 
-
-
-                    <div className="flex items-center md:hidden">
+                    {/* Mobile Navigation Button */}
+                    <div className="md:hidden">
                         <button
-                            onClick={toggleMenu}
-                            className="p-2 rounded-md text-theme"
-                            aria-label="Toggle menu"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="inline-flex items-center justify-center p-2 rounded-md text-[var(--color-text-light)] hover:text-[var(--color-primary)] focus:outline-none"
                         >
-                            {isMenuOpen ? (
-                                <Icon icon="tabler:x" width="24" height="24" />
-                            ) : (
-                                <Icon icon="tabler:menu-2" width="24" height="24" />
-                            )}
+                            <Icon icon={isMenuOpen ? "tabler:x" : "tabler:menu-2"} className="w-6 h-6" />
                         </button>
                     </div>
                 </div>
             </div>
 
-            {/* Mobile menu */}
-            {isMenuOpen && (
-                <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-darktheme shadow-lg flex flex-col items-center">
-                        {navLinks.map((link) => (
+            {/* Mobile Navigation Menu */}
+            <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}>
+                <div className="px-2 pt-2 pb-3 space-y-1 bg-[var(--color-dark)] shadow-lg">
+                    {navLinks.map((link) => (
+                        link.name === "Resume" ? (
+                            <div key={link.name} className="space-y-1">
+                                <Link
+                                    to="/resume"
+                                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                                >
+                                    Resume
+                                </Link>
+                            </div>
+                        ) : (
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className={`block px-3 py-2 rounded-md text-base font-medium ${location.pathname === link.path
-                                    ? "text-theme"
-                                    : "text-white"
+                                className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium ${location.pathname === link.path
+                                    ? "text-[var(--color-primary)]"
+                                    : "text-[var(--color-text-light)] hover:text-[var(--color-primary)]"
                                     }`}
                                 onClick={closeMenu}
                             >
-                                {link.name}
+                                <Icon icon={link.icon} className="w-5 h-5" />
+                                <span>{link.name}</span>
                             </Link>
+                        )
+                    ))}
+                    <div className="flex items-center space-x-3 px-3 py-3 border-t border-[var(--color-gray-700)] mt-2">
+                        {socialLinks.map((link) => (
+                            <a
+                                key={link.icon}
+                                href={link.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[var(--color-text-light)] hover:text-[var(--color-primary)] transition-colors p-2 rounded-full hover:bg-[var(--color-dark)]"
+                            >
+                                <Icon icon={link.icon} className="w-5 h-5" />
+                            </a>
                         ))}
-                        <div className="text-white flex items-center text-2xl gap-1 p-1 rounded-sm">
-                            {socialLink.map((link) => (
-                                <button className="cursor-pointer hover:scale-120 duration-300"><Icon icon={link.icon} /></button>
-                            ))}
-                        </div>
                     </div>
                 </div>
-            )}
+            </div>
         </nav>
     )
 }

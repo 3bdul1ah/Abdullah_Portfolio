@@ -1,57 +1,54 @@
 {
-  "Frontend": [
-    "HTML",
-    "CSS",
+  "Programming & Development": [
+    "Python",
+    "C/C++",
     "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Vue.js",
-    "Tailwind CSS",
-    "SASS",
-    "Redux",
-    "Framer Motion"
-  ],
-  "Backend": [
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "Firebase",
-    "REST API",
-    "GraphQL",
-    "SQL",
-    "PostgreSQL",
-    "Prisma",
-    "Authentication"
-  ],
-  "Mobile": ["React Native", "Expo", "iOS", "Android", "Mobile UI/UX"],
-  "Tools": [
+    "MATLAB",
+    "Linux",
     "Git",
-    "GitHub",
-    "VS Code",
-    "Figma",
-    "Adobe XD",
-    "Webpack",
-    "Vite",
-    "Jest",
-    "Testing Library",
-    "CI/CD"
+    "Docker",
+    "Flask",
+    "Node-RED"
   ],
-  "Design": [
-    "UI/UX Design",
-    "Responsive Design",
-    "Wireframing",
-    "Prototyping",
-    "Accessibility",
-    "Color Theory"
+  "Computer Vision & AI": [
+    "OpenCV",
+    "YOLO",
+    "Depth Camera",
+    "Pointcloud",
+    "ESP32-CAM",
+    "Image Processing"
   ],
-  "Soft Skills": [
-    "Problem Solving",
-    "Communication",
-    "Teamwork",
-    "Time Management",
-    "Adaptability",
-    "Creativity",
-    "Critical Thinking"
+  "Web & Interfaces": [
+    "ReactJS",
+    "ROSBridge",
+    "roslibjs",
+    "ros2djs",
+    "ros3djs"
+  ],
+  "Robotics & Autonomous": [
+    "ROS1/ROS2",
+    "Gmapping",
+    "Cartographer",
+    "SLAM Toolbox",
+    "FAST-LIO",
+    "LIO-SAM",
+    "DWA Planner"
+  ],
+  "Embedded Systems": [
+    "STM32",
+    "ESP32",
+    "Raspberry Pi",
+    "Intel NUC",
+    "Jetson Nano",
+    "2D/3D LiDAR",
+    "IMU",
+    "Encoders"
+  ],
+  "Networking & Protocols": [
+    "MQTT",
+    "WebSocket",
+    "HTTP",
+    "TCP/UDP",
+    "Wireshark"
   ]
 }
