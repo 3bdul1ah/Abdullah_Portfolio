@@ -104,12 +104,27 @@ const Home = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: 0.4 }}
                         >
-                            <div className="relative">
-                                {/* Theme-matching background */}
-                                <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-[var(--color-primary)]/10 via-[var(--color-secondary)]/10 to-[var(--color-primary)]/10"></div>
+                            <div className="relative group">
+                                {/* Animated background */}
+                                <motion.div
+                                    className="absolute -inset-3 rounded-full bg-gradient-to-br from-[var(--color-primary)]/10 via-[var(--color-secondary)]/10 to-[var(--color-primary)]/10"
+                                    animate={{
+                                        scale: [1, 1.02, 1],
+                                        opacity: [0.5, 0.8, 0.5]
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                />
 
                                 {/* Main photo container */}
-                                <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-2 border-[var(--color-primary)]/30 shadow-lg hover:shadow-xl hover:shadow-[var(--color-primary)]/20 transition-all duration-300">
+                                <motion.div
+                                    className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-2 border-[var(--color-primary)]/30 shadow-lg group-hover:shadow-xl group-hover:shadow-[var(--color-primary)]/20 transition-all duration-300"
+                                    whileHover={{ scale: 1.02 }}
+                                    transition={{ duration: 0.3 }}
+                                >
                                     <motion.img
                                         src={profile}
                                         alt="Abdullah Al-Shateri"
@@ -118,13 +133,46 @@ const Home = () => {
                                         transition={{ duration: 0.3 }}
                                     />
 
-                                    {/* Subtle gradient overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-transparent"></div>
-                                </div>
+                                    {/* Animated gradient overlay */}
+                                    <motion.div
+                                        className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-transparent"
+                                        animate={{
+                                            opacity: [0.5, 0.8, 0.5]
+                                        }}
+                                        transition={{
+                                            duration: 3,
+                                            repeat: Infinity,
+                                            ease: "easeInOut"
+                                        }}
+                                    />
+                                </motion.div>
 
-                                {/* Theme-matching accent elements */}
-                                <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-[var(--color-primary)]/30"></div>
-                                <div className="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-[var(--color-secondary)]/30"></div>
+                                {/* Animated accent elements */}
+                                <motion.div
+                                    className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-[var(--color-primary)]/30"
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        opacity: [0.3, 0.5, 0.3]
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                />
+                                <motion.div
+                                    className="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-[var(--color-secondary)]/30"
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        opacity: [0.3, 0.5, 0.3]
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: 1
+                                    }}
+                                />
                             </div>
                         </motion.div>
                     </div>
