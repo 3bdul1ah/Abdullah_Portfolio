@@ -2,21 +2,28 @@
 
 :root {
   /* Modern, professional color palette */
-  --color-primary: #2563eb;
+  --color-primary: #2196f3;
+  /* Electric blue */
   /* Rich blue */
-  --color-secondary: #ec4899;
+  --color-secondary: #00cfff;
+  /* Cyan accent */
   /* Vibrant pink */
-  --color-dark: #0f172a;
+  --color-dark: #0a0f1a;
+  /* Deep blue-black */
   /* Deep navy */
-  --color-dark-lighter: #1e293b;
+  --color-dark-lighter: #101828;
+  /* Slightly lighter blue-black */
   /* Navy blue */
   --color-light: #f8fafc;
   /* Clean white */
-  --color-accent: #38bdf8;
+  --color-accent: #2979ff;
+  /* Vivid blue accent */
   /* Sky blue */
-  --color-text: #f1f5f9;
+  --color-text: #e0e7ef;
+  /* Off-white */
   /* Soft white */
-  --color-text-light: #94a3b8;
+  --color-text-light: #a5b4fc;
+  /* Light blue */
   /* Muted gray */
   --color-success: #22c55e;
   /* Green */
@@ -45,15 +52,15 @@
   }
 
   h1 {
-    @apply text-4xl md:text-5xl mb-6;
+    @apply text-5xl md:text-6xl mb-8 tracking-tight;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl mb-5;
+    @apply text-4xl md:text-5xl mb-6 tracking-tight;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl mb-4;
+    @apply text-3xl md:text-4xl mb-5 tracking-tight;
   }
 
   p {
@@ -82,20 +89,38 @@
     animation: scale 0.3s ease-in-out;
   }
 
+  .glass {
+    background: rgba(16, 24, 40, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1.5px solid rgba(33, 150, 243, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(33, 150, 243, 0.15);
+  }
+
+  .card {
+    @apply glass rounded-2xl p-8 shadow-2xl hover:shadow-[0_8px_32px_0_rgba(33, 150, 243, 0.25)] border border-[var(--color-primary)]/10 transition-all duration-300;
+  }
+
   .btn {
     @apply px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-dark)] shadow-lg;
+    box-shadow: 0 2px 16px 0 rgba(33, 150, 243, 0.15);
+    border: 1.5px solid transparent;
   }
 
   .btn-primary {
-    @apply bg-[var(--color-primary)] text-white hover:bg-[var(--color-accent)] focus:ring-[var(--color-primary)];
+    @apply bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] text-white;
+    box-shadow: 0 0 8px 0 var(--color-primary), 0 2px 16px 0 rgba(33, 150, 243, 0.15);
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+    box-shadow: 0 0 16px 2px var(--color-accent), 0 2px 16px 0 rgba(33, 150, 243, 0.25);
+    border-color: var(--color-accent);
   }
 
   .btn-secondary {
     @apply bg-[var(--color-secondary)] text-white hover:bg-[var(--color-accent)] focus:ring-[var(--color-secondary)];
-  }
-
-  .card {
-    @apply bg-[var(--color-dark-lighter)] rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-[var(--color-gray-700)];
   }
 
   .nav-link {
@@ -104,6 +129,14 @@
 
   .nav-link.active {
     @apply text-[var(--color-accent)] bg-[var(--color-dark-lighter)];
+  }
+
+  .navbar {
+    @apply glass flex items-center justify-between px-8 py-4 rounded-2xl shadow-xl border border-[var(--color-primary)]/10;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    margin-bottom: 2rem;
   }
 }
 

@@ -231,8 +231,7 @@ const About = () => {
                                                 className="btn bg-[var(--color-dark-lighter)] text-[var(--color-text)] hover:bg-[var(--color-primary)]/10 inline-flex items-center px-6 py-3 text-base border border-[var(--color-primary)]/30"
                                             >
                                                 <Icon icon="tabler:file-cv" width="20" height="20" className="mr-2" />
-                                                Resume
-                                                <Icon icon="tabler:arrow-right" width="20" height="20" className="ml-2" />
+                                                Resume                                                <Icon icon="tabler:arrow-right" width="20" height="20" className="ml-2" />
                                             </Link>
                                         </motion.div>
                                     </motion.div>
