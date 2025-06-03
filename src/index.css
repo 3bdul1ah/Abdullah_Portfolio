@@ -97,7 +97,15 @@
   }
 
   .card {
-    @apply glass rounded-2xl p-8 shadow-2xl hover:shadow-[0_8px_32px_0_rgba(33, 150, 243, 0.25)] border border-[var(--color-primary)]/10 transition-all duration-300;
+    @apply rounded-2xl p-8 shadow-2xl border border-[var(--color-primary)]/10 transition-all duration-300;
+    background: rgba(16, 24, 40, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 8px 32px 0 rgba(33, 150, 243, 0.15);
+    border: 1.5px solid rgba(33, 150, 243, 0.15);
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 32px 0 rgba(33, 150, 243, 0.25);
   }
 
   .btn {
@@ -132,7 +140,11 @@
   }
 
   .navbar {
-    @apply glass flex items-center justify-between px-8 py-4 rounded-2xl shadow-xl border border-[var(--color-primary)]/10;
+    @apply flex items-center justify-between px-8 py-4 rounded-2xl shadow-xl border border-[var(--color-primary)]/10;
+    background: rgba(16, 24, 40, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 8px 32px 0 rgba(33, 150, 243, 0.15);
+    border: 1.5px solid rgba(33, 150, 243, 0.15);
     position: sticky;
     top: 0;
     z-index: 50;
