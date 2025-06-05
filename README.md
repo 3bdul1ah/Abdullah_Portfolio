@@ -24,6 +24,7 @@
   - [⚙️ Text and Section Layouts (JSX Content)](#️-text-and-section-layouts-jsx-content)
   - [📣 Call to Action (CTA) Sections](#-call-to-action-cta-sections)
   - [🎨 Theme & Colors](#-theme--colors)
+- [Summary](#summary)
 - [🚢 Deployment](#-deployment)
   - [Vercel](#vercel)
   - [GitHub Pages](#github-pages)
@@ -161,23 +162,51 @@
 - **To assign a project to a category:** Use the `id` in the `category` array of a project in `projects.json`.
 
 ### ⚙️ Text and Section Layouts (JSX Content)
-- **Files:**
-  - Main pages: [`src/pages/Home.jsx`](src/pages/Home.jsx), [`src/pages/About.jsx`](src/pages/About.jsx), [`src/pages/Projects.jsx`](src/pages/Projects.jsx), [`src/pages/Resume.jsx`](src/pages/Resume.jsx)
-  - Components: [`src/components/Navbar.jsx`](src/components/Navbar.jsx), [`src/components/Footer.jsx`](src/components/Footer.jsx), [`src/components/ProjectCard.jsx`](src/components/ProjectCard.jsx)
-- **How:**
-  - Edit JSX to change section order, add/remove sections, or update static text.
-  - For example, to change the About section intro, edit the text in [`src/pages/About.jsx`](src/pages/About.jsx):
-    ```jsx
-    <motion.p className="text-xl ...">
-      I'm Abdullah Al-Shateri, an engineer who builds smart systems ...
-    </motion.p>
+Below are the main JSX files and the specific sections you may want to edit for your own content:
+
+#### [`src/pages/Home.jsx`](src/pages/Home.jsx)
+- **Animated Roles / Hero Section:**
+  - Edit the `roles` array for your own titles:
+    ```js
+    const roles = [
+      "Engineer",
+      "Robotics Developer",
+      "AI Enthusiast"
+    ];
     ```
-  - To change the Home page hero heading or subtitle, edit [`src/pages/Home.jsx`](src/pages/Home.jsx):
+  - Edit the main heading and subtitle:
     ```jsx
-    <h1 className="...">Hi, I'm Abdullah</h1>
-    <p className="...">Engineer | Robotics | AI</p>
+    <h1>Hi, I'm Your Name</h1>
+    <p>Engineer | Robotics | AI</p>
     ```
-  - To add a new section, create a new component in `src/components/` and import it into the relevant page in `src/pages/`.
+- **Profile Photo:** Change the imported image and alt text.
+- **Call to Action (CTA):** Edit the CTA section at the bottom for your own message and links.
+
+#### [`src/pages/About.jsx`](src/pages/About.jsx)
+- **About/Bio Section:** Edit the main paragraph(s) to describe yourself.
+- **Animated Roles:** If present, update the roles array and animated text.
+- **Profile Photo:** Change the imported image and alt text.
+- **CTA Section:** Edit the CTA text, button, and link.
+
+#### [`src/pages/Projects.jsx`](src/pages/Projects.jsx)
+- **Section Headings:** Edit the main heading and description.
+- **Project Filters:** Change filter button labels if you update categories.
+- **CTA Section:** Edit the CTA at the bottom for your own message and links.
+
+#### [`src/pages/Resume.jsx`](src/pages/Resume.jsx)
+- **Section Headings:** Edit the main heading and description.
+- **Timeline/Experience:** Edit or add static text for your professional experience.
+- **CTA Section:** Edit the CTA at the bottom for your own message and links.
+
+#### [`src/components/Navbar.jsx`](src/components/Navbar.jsx)
+- **Site Title/Logo:** Change the displayed site name or icon.
+- **Navigation Links:** Edit or add navigation links.
+
+#### [`src/components/Footer.jsx`](src/components/Footer.jsx)
+- **Footer Text:** Edit the copyright or footer message.
+
+#### [`src/components/ProjectCard.jsx`](src/components/ProjectCard.jsx)
+- **Project Card Layout:** Change how each project is displayed (title, description, links, etc.).
 
 ### 📣 Call to Action (CTA) Sections
 - **Files:**
@@ -217,6 +246,32 @@
   --color-primary: #8b5cf6;
   ```
 
+---
+
+## Summary
+
+| File/Section                        | What to Edit (Personalization)                                 |
+|-------------------------------------|---------------------------------------------------------------|
+| `src/pages/Home.jsx`                | Animated roles, hero heading/subtitle, profile photo, CTA      |
+| `src/pages/About.jsx`               | Bio/about text, animated roles, profile photo, CTA             |
+| `src/pages/Projects.jsx`            | Section heading, project filters, CTA                          |
+| `src/pages/Resume.jsx`              | Section headings, experience, education, CTA                   |
+| `src/components/Navbar.jsx`         | Site title/logo, navigation links                              |
+| `src/components/Footer.jsx`         | Footer text                                                   |
+| `src/components/ProjectCard.jsx`    | Project card layout, tags, links                               |
+| `src/data/projects.json`            | Project data, images, categories                               |
+| `src/data/skills.json`              | Skills categories and items                                    |
+| `src/data/experience.json`          | Work experience entries                                        |
+| `src/data/education.json`           | Education entries                                              |
+| `src/data/social.json`              | Social/contact links                                           |
+| `src/data/categories.js`            | Project filter categories                                      |
+| `src/index.css`                     | Theme colors, global styles                                    |
+
+**Notes:**
+- To change animated roles: Edit the `roles` array in `Home.jsx` or `About.jsx`.
+- To change CTAs: Edit the CTA section at the bottom of each main page.
+- To change theme colors: Edit the `:root` variables in `src/index.css`.
+- For detailed code examples, see the comments in each file.
 ---
 
 ## 🚢 Deployment
