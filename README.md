@@ -75,7 +75,7 @@
 ```text
 .
 ├── public/
-│   └── assets/
+│   └── assets/ # all your images should be here
 ├── src/
 │   ├── components/
 │   ├── data/
@@ -93,7 +93,7 @@
 
 ### 🖼️ Profile Photo
 - **Files:** [`src/pages/About.jsx`](src/pages/About.jsx), [`src/pages/Home.jsx`](src/pages/Home.jsx)
-- **How:** Replace the import with your own photo in `src/assets/`.
+- **How:** Replace the import with your own photo in `public/assets/`.
   ```js
   import profile from '../assets/your-photo.png';
   ```
