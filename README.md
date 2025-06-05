@@ -4,7 +4,7 @@
 
 ---
 
-> **A modern, professional portfolio template built with React, Vite, and Tailwind CSS.**  
+> **A modern, professional portfolio template built with React, Vite, and Tailwind CSS.**
 > Showcase your projects, resume, and skills with a customizable, animated, and responsive site.
 
 ---
@@ -12,8 +12,9 @@
 ## 📚 Table of Contents
 
 - [✨ Features](#-features)
-- [🗂️ File Structure](#️-file-structure)
+- [🛠️ Prerequisites](#️-prerequisites)
 - [🚀 Getting Started](#-getting-started)
+- [🗂️ File Structure](#️-file-structure)
 - [🛠️ Where to Edit Content](#️-where-to-edit-content)
   - [🖼️ Profile Photo](#️-profile-photo)
   - [📦 Projects](#-projects)
@@ -26,15 +27,13 @@
 - [🚢 Deployment](#-deployment)
   - [Vercel](#vercel)
   - [GitHub Pages](#github-pages)
-- [🤝 Contribution & Best Practices](#-contribution--best-practices)
-- [🔗 Credits](#-credits)
-- [📝 License](#-license)
+
 
 ---
 
 ## ✨ Features
 
-- Legendary dark blue/black theme with glassmorphism and accent highlights
+- Dark blue/black theme with glassmorphism and accent highlights
 - Animated sections and modern UI components
 - Responsive layout for all devices
 - JSON-driven content for projects, skills, and resume
@@ -42,22 +41,12 @@
 
 ---
 
-## 🗂️ File Structure
+## 🛠️ Prerequisites
 
-```text
-.
-├── public/
-│   └── assets/
-├── src/
-│   ├── components/
-│   ├── data/
-│   ├── pages/
-│   ├── index.css
-│   ├── App.jsx
-│   └── main.jsx
-├── index.html
-├── package.json
-```
+- **Node.js** (v18 or higher recommended):  
+  Download and install from [https://nodejs.org/](https://nodejs.org/)
+
+➡️ **Once prerequisites are installed, continue to [Getting Started](#-getting-started) for setup and usage instructions.**
 
 ---
 
@@ -77,6 +66,25 @@
    npm run dev
    ```
    The site will be available at [http://localhost:5173](http://localhost:5173).
+
+---
+
+## 🗂️ File Structure
+
+```text
+.
+├── public/
+│   └── assets/
+├── src/
+│   ├── components/
+│   ├── data/
+│   ├── pages/
+│   ├── index.css
+│   ├── App.jsx
+│   └── main.jsx
+├── index.html
+├── package.json
+```
 
 ---
 
